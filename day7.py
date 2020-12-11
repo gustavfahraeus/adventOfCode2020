@@ -13,6 +13,26 @@ for rule in input:
 
     ruleBook[typeOfBag] = {}
     for restriction in bagRestrictions:
+<<<<<<< HEAD
+        if restriction.split(" ", 1)[0] == "no": continue
+        else: ruleBook[typeOfBag] = {restriction.split(" ", 1)[1]: int(restriction.split(" ", 1)[0])}
+           
+
+visited = []
+sum = 0
+def bagPresent(inputBag):
+    sum = 0
+    for outerBag, innerBags in ruleBook.items():
+        for bag in innerBags:
+            if bag == inputBag and not (outerBag in visited):
+                visited.append(outerBag)
+                sum += 1 + bagPresent(outerBag) 
+                    
+    return sum
+
+            
+print(bagPresent("shiny gold bag"))
+=======
      
         if restriction.split(" ", 1)[0] == "no": ruleBook[typeOfBag] = {}
         else: 
@@ -45,6 +65,7 @@ print(capacity("shiny gold bag"))
 
 
 
+>>>>>>> e7045133d26797f1157e43ae7c2b569b9b03c3cc
 
 
 
